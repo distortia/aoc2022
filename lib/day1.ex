@@ -1,4 +1,4 @@
-defmodule Day1 do
+defmodule Aoc.Day1 do
   @moduledoc """
   We pass in data from the file, we need to parse it
   Each elf is "separated" by a blank line in the file
@@ -14,9 +14,13 @@ defmodule Day1 do
   then sum up each sub list
   [[5000], [4000], [11000], [24000], [10000]]
   """
+
+  alias Aoc.IO
+
   def part1(file) do
     file
-    |> read_and_filter()
+    |> IO.read()
+    |> filter()
     |> Enum.max()
   end
 
@@ -25,7 +29,8 @@ defmodule Day1 do
   """
   def part2(file) do
     file
-    |> read_and_filter()
+    |> IO.read()
+    |> filter()
     |> top_3_combined()
   end
 
@@ -38,10 +43,8 @@ defmodule Day1 do
     |> Enum.sum()
   end
 
-  defp read_and_filter(file) do
-    file
-    |> File.stream!()
-    |> Stream.map(&String.trim/1)
+  defp filter(stream) do
+    stream
     |> Stream.chunk_by(fn line -> line == "" end)
     |> Stream.reject(fn i -> i == [""] end)
     |> Stream.map(fn list -> Enum.reduce(list, 0, fn i, acc -> String.to_integer(i) + acc end) end)
