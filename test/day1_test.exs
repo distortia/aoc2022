@@ -1,7 +1,6 @@
 defmodule Day1Test do
   use ExUnit.Case
   alias Aoc.Day1
-  alias Aoc.IO
 
   describe "Day1" do
     test "part 1 returns the calorie count for the elf with the highest amount of calories carried" do
