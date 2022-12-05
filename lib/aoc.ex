@@ -7,6 +7,7 @@ defmodule Aoc do
   alias Aoc.Day2
   alias Aoc.Day3
   alias Aoc.Day4
+  alias Aoc.Day5
 
   @doc ~S"""
   ## Examples
@@ -94,5 +95,27 @@ defmodule Aoc do
   """
   def day4_part2 do
     Day4.part2(File.cwd!() <> "/data/day4.txt")
+  end
+
+  @doc ~S"""
+  ## Examples
+
+      iex> Aoc.day5_part1()
+      "PTWLTDSJV"
+
+  """
+  def day5_part1 do
+    Day5.part1(File.cwd!() <> "/data/day5.txt")
+  end
+
+  @doc ~S"""
+  ## Examples
+
+      iex> Aoc.day5_part2()
+      "WZMFVGGZP"
+
+  """
+  def day5_part2 do
+    Day5.part2(File.cwd!() <> "/data/day5.txt")
   end
 end
